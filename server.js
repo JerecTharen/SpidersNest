@@ -18,6 +18,7 @@ Imported Local Modules
 const OwlHouse = require("./source/Actions/OwlHouse/OwlHouse.js");
 const SandersonProgress = require("./source/Actions/Sanderson/SandersonProgress.js");
 const ClassVidLooker = require("./source/Actions/AshesOfCreation/ClassVidLooker.js");
+const SafeholdForumCheck = require("./source/Actions/Safehold/SafeholdForumCheck.js");
 
 /*
 ===========================
@@ -27,8 +28,10 @@ Parse Commandline Arguments
 //Flags and booleans to keep track of
 const owlHouseFlag = "-oh";
 const sandersonProgressFlag = "-sp";
+const safeholdForumFlag = "-sf";
 let shouldResaveOwlHouseJson = false;
 let shouldResaveSandersonProgress = false;
+let shouldResaveSafeholdForumCheck = false;
 let helpNotCalled = true;
 
 const helpFlag = "-h";
@@ -38,6 +41,7 @@ function giveHelp(){
     console.log("Flags that can be added: ");
     console.log(`To resave olw house json use: <${owlHouseFlag}>`);
     console.log(`To resave Sanderson progress bar, use: <${sandersonProgressFlag}>`);
+    console.log(`To resave Safehold Forum check, use: <${safeholdForumFlag}>`);
     console.log(`To see this help use: <${helpFlag}> or <${helpFlag2}>`);
 }
 
@@ -58,6 +62,9 @@ function CheckArgvForFlags(){
                 break;
             case sandersonProgressFlag:
                 shouldResaveSandersonProgress = true;
+                break;
+            case safeholdForumFlag:
+                shouldResaveSafeholdForumCheck = true;
                 break;
         }
     }
@@ -111,6 +118,10 @@ if(helpNotCalled){//Don't do stuff if asking for help
     new SandersonProgress(shouldResaveSandersonProgress);
     //Look for new videos for interesting Ashes of Creation classes
     new ClassVidLooker();
+    //Check for Safehold forum updates -CURRENTLY BROKEN
+    //TODO: Build something that will search all the forum post titles since small updates in the html are triggering
+    //  the update alert prematurely
+    //new SafeholdForumCheck(shouldResaveSafeholdForumCheck);
 }
 
 
@@ -119,3 +130,4 @@ if(helpNotCalled){//Don't do stuff if asking for help
 // postReq.end();
 
 console.log("end");//Not actually the end since some event listeners are still going
+console.log("---------------------------------------------");

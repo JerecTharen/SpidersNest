@@ -8,7 +8,7 @@ class SandersonProgress{
 
         let sProgressComparison = new Comparison(undefined, undefined,
              "Sanderson Project progression was updated, check out the new project!", 
-             "No sanderson project update today, check in tomorrow!");
+             "No sanderson project update today, check in tomorrow.");
         
         let sProgressWebCheck = new WebCheck("Sanderson Progress Bar", "www.brandonsanderson.com", "/",
             "<h3 style=\"color: #ced0d6;text-align: left\" class=\"vc_custom_heading\" >PROGRESS BARS</h3><div class=\"vc_progress_bar wpb_content_element pb-style-two transparent-bg dt-style\" >",

@@ -28,14 +28,16 @@ class WebCheck{
         this.JSONText = "";
     }
 
-    ParseAndCheckText(shouldSave, allHtml){
+    ParseAndCheckText(shouldSave, allHtml, beginIndex = 1, endIndex = 0){
         //Get text to compare against
         this.AllHTML = allHtml;
         let splitBegin = "";
         let splitText = "";
         if(this.MatchFinder === undefined){
             splitBegin = this.AllHTML.split(this.SplitBegin);
-            splitText = splitBegin[1].split(this.SplitEnd)[0];
+            if(shouldSave)
+                console.log('begin', splitBegin.length);
+            splitText = splitBegin[beginIndex].split(this.SplitEnd)[endIndex];
         }
         
         if(shouldSave){
@@ -47,11 +49,13 @@ class WebCheck{
             
             //Save JSON file
             fs.writeFileSync(this.JSONSaveLocation, this.JSONText);
+            console.log("---------------------------------------------");
         }
         else{
             if(this.MatchFinder !== undefined){//find matcher
                 let isMatchFound = this.AllHTML.includes(this.MatchFinder.Matcher);
                 console.log(isMatchFound ? this.MatchFinder.UpdateExistsText: this.MatchFinder.NoUpdateText);
+                console.log("---------------------------------------------");
             }
             else{//Do comparison
                 this.JSONText = fs.readFileSync(this.JSONSaveLocation);

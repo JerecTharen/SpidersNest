@@ -10,6 +10,8 @@ class Comparison{
     GetUpdate(currentText){
         let notUpdated = this.Text === currentText;
         console.log(notUpdated ? this.NoUpdateText : this.UpdateExistsText);
+        //Make it easier to read in between updates
+        console.log("---------------------------------------------");
         return notUpdated;
     }
 
