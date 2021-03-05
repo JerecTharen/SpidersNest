@@ -3,6 +3,10 @@ const Comparison = require("../../Utils/Comparison/Comparison.js");
 const http = require("http");
 const fs = require("fs");
 
+//Search through Safehold forum and find previews for the next book.
+//WORK IN PROGRESS
+//TODO: Figure out good html markers to determine what to parse through
+//  Or figure out how to search through this for what I want
 class SafeholdForumCheck{
     constructor(shouldResaveSafeholdForumCheck){
         this.ShouldResaveSafeholdForumCheck = shouldResaveSafeholdForumCheck;

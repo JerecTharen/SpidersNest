@@ -2,6 +2,7 @@ const WebCheck = require("../../Utils/WebCheck/WebCheck.js");
 const Comparison = require("../../Utils/Comparison/Comparison.js");
 const https = require("https");
 
+//Compare the progress bar html I have saved with current progress bar on Brandon Sanderson's home page
 class SandersonProgress{
     constructor(shouldResaveSandersonProgress){
         this.ShouldResaveSandersonProgress = shouldResaveSandersonProgress;

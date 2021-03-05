@@ -7,6 +7,7 @@ class Comparison{
         this.UpdateExistsText = updateExistsText;
     }
 
+    //Compares texts and logs result
     GetUpdate(currentText){
         let notUpdated = this.Text === currentText;
         console.log(notUpdated ? this.NoUpdateText : this.UpdateExistsText);
@@ -15,6 +16,7 @@ class Comparison{
         return notUpdated;
     }
 
+    //Converts this object to Json for saving
     ConvertToJson(){
         return JSON.stringify({
             Name : this.Name,
@@ -24,6 +26,7 @@ class Comparison{
         });
     }
 
+    //Recreates a comparison from a json string
     static GetComparisonFromJson(jsonText){
         let jsonObj = JSON.parse(jsonText);
         let name = jsonObj.Name;

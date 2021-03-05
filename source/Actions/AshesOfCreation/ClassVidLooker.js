@@ -2,6 +2,7 @@ const MatchFinder = require("../../Models/MatchFinder/MatchFinder.js");
 const WebCheck = require("../../Utils/WebCheck/WebCheck.js");
 const https = require("https");
 
+//Search the Ashes of creation youtube page for video titles that I'm interested in
 class ClassVidLooker{
     constructor(){
         const host = "www.youtube.com";
