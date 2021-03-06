@@ -10,5 +10,27 @@
 
     <div id="Alert1">test</div>
 
-    <script type="text/javascript" src="./Web/main.js"></script>
+    <script type="text/javascript" src="./Web/main.js">
+        // $.ajax({
+        //     accepts: {
+        //         json: 'application/json',
+        //     },
+            
+        //     // Instructions for how to deserialize a `json`
+        //     converters: {
+        //         'text json': function(result) {
+        //         // Do Stuff
+        //         console.log("json result:", JSON.parse(result));
+        //         return newresult;
+        //         }
+        //     },
+            
+        //     // Expect a `mycustomtype` back from server
+        //     dataType: 'json'
+        //     });
+        $.get( "localhost:3000/test", function( data ) {
+            // $( ".result" ).html( data );
+            console.log("here is result: ", JSON.parse(data));
+        });
+    </script>
 </body>

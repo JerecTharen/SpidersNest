@@ -10,6 +10,11 @@ const https = require("https");
 const EventEmitter = require('events');
 const getEmitter = new EventEmitter();
 
+var express = require('express')
+var app = express();
+var path = require('path');
+
+
 /*
 ======================
 Imported Local Modules
@@ -123,8 +128,28 @@ if(helpNotCalled){//Don't do stuff if asking for help
     //  the update alert prematurely
     //new SafeholdForumCheck(shouldResaveSafeholdForumCheck);
 }
-
-
+/*
+    ================
+    Server Endpoints
+    ================
+*/
+app.listen(3000, () => {
+    console.log('listening on port 3000');
+});
+app.set({
+    'Content-Type': 'text/html'
+});
+app.get('/', (req, res)=>{
+    //var html = fs.readFileSync("./index.html");
+    //res.sendFile("./index.html");
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+app.get('/test', (req, res)=>{
+    res.send(JSON.stringify({name: "test", value: 3.14}));
+});
+app.get('/Web/main.js', (req, res)=>{
+    res.sendFile(path.join(__dirname + '/Web/main.js'));
+});
 //Code to send post request if needed
 // postReq.write("hello world!");
 // postReq.end();
