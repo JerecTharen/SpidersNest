@@ -2,6 +2,7 @@ const WebCheck = require("../../Utils/WebCheck/WebCheck.js");
 const Comparison = require("../../Utils/Comparison/Comparison.js");
 const http = require("http");
 
+//Search the Owl house season 2 wiki page for an update compared with what I have saved
 class OwlHouse{
     constructor(shouldResaveOwlHouseJson){
         this.ShouldResaveOwlHouseJson = shouldResaveOwlHouseJson;

@@ -4,6 +4,7 @@ class HttpCallback{
         this.Callback = callback;
     }
 
+    //Function to be passed in http requests
     GetHttpCallback(response){
         let str = "";
         console.log('test');

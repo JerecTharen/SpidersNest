@@ -24,6 +24,7 @@ const OwlHouse = require("./source/Actions/OwlHouse/OwlHouse.js");
 const SandersonProgress = require("./source/Actions/Sanderson/SandersonProgress.js");
 const ClassVidLooker = require("./source/Actions/AshesOfCreation/ClassVidLooker.js");
 const SafeholdForumCheck = require("./source/Actions/Safehold/SafeholdForumCheck.js");
+const DragonPrince = require('./source/Actions/DragonPrince/DragonPrince.js');
 
 /*
 ===========================
@@ -34,7 +35,9 @@ Parse Commandline Arguments
 const owlHouseFlag = "-oh";
 const sandersonProgressFlag = "-sp";
 const safeholdForumFlag = "-sf";
+const dragonPrinceFlag = "-dp";
 let shouldResaveOwlHouseJson = false;
+let shouldResaveDragonPrinceJson = false;
 let shouldResaveSandersonProgress = false;
 let shouldResaveSafeholdForumCheck = false;
 let helpNotCalled = true;
@@ -48,6 +51,7 @@ function giveHelp(){
     console.log(`To resave Sanderson progress bar, use: <${sandersonProgressFlag}>`);
     console.log(`To resave Safehold Forum check, use: <${safeholdForumFlag}>`);
     console.log(`To see this help use: <${helpFlag}> or <${helpFlag2}>`);
+    console.log(`To resave Dragon Prince check, use: <${dragonPrinceFlag}>`);
 }
 
 //parse arguments
@@ -70,6 +74,9 @@ function CheckArgvForFlags(){
                 break;
             case safeholdForumFlag:
                 shouldResaveSafeholdForumCheck = true;
+                break;
+            case dragonPrinceFlag:
+                shouldResaveDragonPrinceJson = true;
                 break;
         }
     }
@@ -119,6 +126,8 @@ console.log('start');
 if(helpNotCalled){//Don't do stuff if asking for help
     //Send Owl House Get Request
     new OwlHouse(shouldResaveOwlHouseJson);
+    //Send Dragon Prince Get Request
+    new DragonPrince(shouldResaveDragonPrinceJson);
     //Send Sanderson Progress Bar Get Request
     new SandersonProgress(shouldResaveSandersonProgress);
     //Look for new videos for interesting Ashes of Creation classes
