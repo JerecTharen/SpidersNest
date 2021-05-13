@@ -1,5 +1,5 @@
-﻿/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
-import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
+/// <reference path="../../../node_modules/@types/jasmine/index.d.ts" />
+import { TestBed, ComponentFixture, ComponentFixtureAutoDetect, waitForAsync } from '@angular/core/testing';
 import { BrowserModule, By } from "@angular/platform-browser";
 import { NestNodeComponent } from './nest-node.component';
 
@@ -7,7 +7,7 @@ let component: NestNodeComponent;
 let fixture: ComponentFixture<NestNodeComponent>;
 
 describe('NestNode component', () => {
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [ NestNodeComponent ],
             imports: [ BrowserModule ],
@@ -19,7 +19,7 @@ describe('NestNode component', () => {
         component = fixture.componentInstance;
     }));
 
-    it('should do something', async(() => {
+    it('should do something', waitForAsync(() => {
         expect(true).toEqual(true);
     }));
 });
