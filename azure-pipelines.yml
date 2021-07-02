@@ -13,6 +13,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- workingDirectory: DotnetCore
 - script: dotnet build --configuration $(buildConfiguration)
+  workingDirectory: DotnetCore
   displayName: 'dotnet build $(buildConfiguration)'
