@@ -14,5 +14,5 @@ variables:
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
-  workingDirectory: DotnetCore
+  workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
