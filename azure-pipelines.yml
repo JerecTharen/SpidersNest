@@ -13,16 +13,15 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-#- script: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#  displayName: 'download chrome $(buildConfiguration)'
-#- script: sudo apt install ./google-chrome-stable_current_amd64.deb
-#  displayName: 'download chrome $(buildConfiguration)'
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm install $(buildConfiguration)'
-- script: 'npm test'
+- script: xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npm run test -- --watch=false --codeCoverage=true
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm test $(buildConfiguration)'
+# - script: 'npm test'
+#   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
+#   displayName: 'npm test $(buildConfiguration)'
