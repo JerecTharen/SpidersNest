@@ -27,7 +27,10 @@ steps:
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
 #Run angular tests
 # - script: xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npm run test -- --watch=false --codeCoverage=true
 #   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
