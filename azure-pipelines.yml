@@ -13,6 +13,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- script: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  displayName: 'download chrome $(buildConfiguration)'
+- script: sudo apt install ./google-chrome-stable_current_amd64.deb
+  displayName: 'download chrome $(buildConfiguration)'
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
