@@ -13,12 +13,15 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+#Build dotnet
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
+#Install dependencies
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm install $(buildConfiguration)'
+#Run angular tests
 - script: xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npm run test -- --watch=false --codeCoverage=true
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm test $(buildConfiguration)'
