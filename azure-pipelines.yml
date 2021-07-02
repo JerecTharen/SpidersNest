@@ -16,6 +16,9 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
+- script: 'npm i'
+  workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
+  displayName: 'npm install $(buildConfiguration)'
 - script: 'npm test'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
-  displayName: 'dotnet test $(buildConfiguration)'
+  displayName: 'npm test $(buildConfiguration)'
