@@ -21,10 +21,17 @@ steps:
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm install $(buildConfiguration)'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 #Run angular tests
-- script: xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npm run test -- --watch=false --codeCoverage=true
-  workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
-  displayName: 'npm test $(buildConfiguration)'
+# - script: xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npm run test -- --watch=false --codeCoverage=true
+#   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
+#   displayName: 'npm test $(buildConfiguration)'
 # - script: 'npm test'
 #   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
 #   displayName: 'npm test $(buildConfiguration)'
