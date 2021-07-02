@@ -17,5 +17,5 @@ steps:
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
 - script: 'dotnet test'
-  workignDirectory: DotnetCore/SpidersNestNetCore
+  workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet test $(buildConfiguration)'
