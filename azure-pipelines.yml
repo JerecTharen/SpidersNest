@@ -21,7 +21,8 @@ steps:
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm install $(buildConfiguration)'
-- script: 'mkdir Release'
+#Create release directory
+- script: 'mkdir ./Release'
   workingDirectory:  $(System.DefaultWorkingDirectory)
   displayName: 'Create release directory'
 - task: ArchiveFiles@2
