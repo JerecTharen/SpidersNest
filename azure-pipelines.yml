@@ -21,7 +21,7 @@ steps:
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm install $(buildConfiguration)'
-#Create release directory
+#Create release directory so pipeline can pick it up
 - script: 'mkdir ./Release'
   workingDirectory:  $(System.DefaultWorkingDirectory)
   displayName: 'Create release directory'
