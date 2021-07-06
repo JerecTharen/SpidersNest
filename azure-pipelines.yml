@@ -31,6 +31,8 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+- publish: $(System.DefaultWorkingDirectory)/bin/WebApp
+  artifact: WebApp
 #Run angular tests - uncomment to see tests fail during build, builds hopefully show in Jira
 # - script: xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npm run test -- --watch=false --codeCoverage=true
 #   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
