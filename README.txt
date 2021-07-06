@@ -9,3 +9,6 @@ Finally, run server.js with all flags set to save json for the script to check a
 
 See ./source/Utils/WebCheck/WebCheck.js and ./source/Utils/Comparison/Comparison.js for more information on what this script does specifically.
 To create more sites for the script to check, add more Actions (you'll have to see previous one's that I have made for examples as I have not OOP that part very much yet)
+
+
+Specifically, this branch is to test integrating with Azure pipelines and Jie-rah
