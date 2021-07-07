@@ -13,7 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-#Build dotnet
+#Build dotnet core
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
