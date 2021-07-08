@@ -32,10 +32,19 @@ namespace SpidersNestNetCore.Controllers
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                TemperatureC = GetRandomMinMax(rng, -20, 55),
+                Summary = Summaries[GetRandomMinMax(rng, Summaries.Length)]
             })
             .ToArray();
+        }
+
+        public static int GetRandomMinMax(Random seed, int? max = null, int? min = null)
+        {
+            if (max.HasValue && min.HasValue)
+                return seed.Next(min.Value, max.Value);
+            else if (max.HasValue)
+                return seed.Next(max.Value);
+            else return seed.Next();
         }
     }
 }
