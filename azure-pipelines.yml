@@ -19,7 +19,7 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 - script: dotnet test
   workingDirectory: DotnetCore/SpidersNestNetCore
-  displayName: 'dotnet test
+  displayName: 'dotnet test'
 #Install dependencies
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
