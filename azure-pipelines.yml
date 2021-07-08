@@ -17,12 +17,15 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   workingDirectory: DotnetCore/SpidersNestNetCore
   displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet test
+  workingDirectory: DotnetCore/SpidersNestNetCore
+  displayName: 'dotnet test
 #Install dependencies
 - script: 'npm i'
   workingDirectory: DotnetCore/SpidersNestNetCore/ClientApp
   displayName: 'npm install $(buildConfiguration)'
 #Create release directory so pipeline can pick it up
-- script: 'mkdir ./Release'
+- script: 'mkdir Release'
   workingDirectory:  $(System.DefaultWorkingDirectory)
   displayName: 'Create release directory'
 - task: ArchiveFiles@2
